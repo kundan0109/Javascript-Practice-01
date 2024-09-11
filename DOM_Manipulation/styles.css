@@ -1,0 +1,17 @@
+h1{
+    background-color: aquamarine;
+    color: rgb(12, 12, 122);
+    text-align: center;
+}
+
+button{
+    background-color: rgb(176, 134, 148);
+    font-weight: 600;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+}
+
+body{
+    background-color: rgb(202, 175, 134);
+}
