@@ -40,27 +40,59 @@
     <p id="bhendi"></p>
 
     <script>
-      const employee = { name: "Paglu", age: 19, gender: "bisexual" };
+      // const employee = { name: "Paglu", age: 19, gender: "bisexual" };
 
-      employee.age = 55;
+      // employee.age = 55;
 
-      employee.salary = 55000;
+      // employee.salary = 55000;
 
-      document.getElementById("bhendi").innerHTML =
-        "employee salary is  " + employee.salary;
+      // document.getElementById("bhendi").innerHTML =
+      //   "employee salary is  " + employee.salary;
 
-      let age = true;
-      console.log(typeof age);
+      // let age = true;
+      // console.log(typeof age);
 
-      function Person(name) {
-        this.name = name;
-      }
+      // function Person(name) {
+      //   this.name = name;
+      // }
 
-      let person1 = new Person("John");
+      // let person1 = new Person("John");
 
-      console.log(person1 instanceof Person); // true
-      console.log(person1 instanceof Object); // true (because all objects inherit from Object)
-      console.log(person1 instanceof Array); // false
+      // console.log(person1 instanceof Person); // true
+      // console.log(person1 instanceof Object); // true (because all objects inherit from Object)
+      // console.log(person1 instanceof Array); // false
+
+      // CREATING FUNCTION
+      //   const employeeObj = {
+      //     name : "Dhannu",
+      //     sirname  : "Bhendi",
+      //     age : 19,
+      //     allShow : function(){return this.name + "is name" + this.age + "is age of employee" + this.sirname + " is sirname of employye " }
+      //   }
+      //   document.getElementById("bhendi").innerHTML = employeeObj.allShow();
+
+      // OBJECT  ARE MUTABLE and when we assign it to new variable the updation in variable attribute changes the attribute of original object also because it pointing ot the same refrence
+      const oldObj = {
+        name: "dhanu",
+        age: 19,
+      };
+      // const newObj = oldObj;
+      // newObj.age = 56;
+      // newObj.name = "kundna";
+
+      // document.getElementById("bhendi").innerHTML =
+      //   oldObj.name + " is name " + oldObj.age + " is age ";
+
+      // try tp print object
+      // document.getElementById("bhendi").innerHTML = oldObj;
+
+      // // array of a properties
+      // const myArray = Object.values(oldObj);
+      // document.getElementById("bhendi").innerHTML = myArray;
+
+
+
+      
     </script>
   </body>
 </html>
