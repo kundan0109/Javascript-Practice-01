@@ -1,4 +1,0 @@
-// setTimeout
-
-// setInterval
-
