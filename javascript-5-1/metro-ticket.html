@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Metro Ticket</title>
+  </head>
+  
+  <body>
+    <script>
+      function getTicketPrice() {
+        let metroTicket;
+        let gender = prompt(
+          "Please enter your gender (male/female):"
+        ).toLowerCase();
+
+        if (gender === "female") {
+          metroTicket = "0";
+          alert(`Metro ticket is free for females. ${metroTicket}`);
+        } else if (gender === "male") {
+          let age = parseInt(prompt("Please enter your age:"));
+
+          if (age < 5) {
+            metroTicket = "0";
+            alert(`Metro ticket is free for males under 5.${metroTicket}`);
+          } else if (age >= 5 && age < 8) {
+            metroTicket = "50rs";
+            alert(`Metro ticket is half price for males between 5 and 8.`);
+          } else if (age >= 65 ) {
+            metroTicket = "30rs";
+            alert(`Metro ticket price is 30% for males older than 65. ${metroTicket}`);
+          } else {
+            metroTicket = "100rs";
+            alert(`Metro ticket is full price for males 8 and older. ${metroTicket}`);
+          }
+        } else {
+          alert("Invalid gender entered.");
+        }
+      }
+
+      getTicketPrice();
+    </script>
+  </body>
+</html>

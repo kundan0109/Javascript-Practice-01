@@ -11,90 +11,70 @@
     </style>
   </head>
   <body>
-    <h1>Bat Ball Game</h1>
-    <!-- ******************************************************** -->
+    <h1>Bat Ball Stump Game</h1>
+    <!--  ******************************************************** -->
     <button
-      onclick="let  userChoice = 'Bat';
-    let randomNumber = Math.random()*3; 
-    let compChoice;
-    if (randomNumber >0 && randomNumber <= 1){
-       compChoice = 'Bat'; 
-       console.log(compChoice);
-       
-    }
-    else if (randomNumber > 1 && randomNumber <= 2){
-       compChoice = 'Ball'; 
-       console.log(compChoice);
-
-     }
-    else {
-       compChoice = 'Stump';
-       console.log(compChoice);
- 
-      }
-    if(compChoice === 'Ball') {
-      alert('You Won')
-    }
-    else if(compChoice === 'Stump') {
-      alert('You Lost')
-    }
-    else {
-      alert('Its a tie')
-    }
+      let result;
+      onclick=" let userChoice = 'Bat';
+      compChoice =  generateComputerChoice();
+      result =  getResult(userChoice, compChoice);
+      showResult(userChoice, compChoice, result);
     "
     >
       Bat
     </button>
     <button
       onclick=" userChoice = 'Ball';
-    randomNumber = Math.random()*3; 
-    
-    if (randomNumber >0 && randomNumber <= 1){
-       compChoice = 'Bat'; 
-    }
-    else if (randomNumber > 1 && randomNumber <= 2){
-       compChoice = 'Ball'; 
-     }
-    else {
-       compChoice = 'Stump'; 
-      }
-    if(compChoice === 'Bat') {
-      alert('You Lost')
-    }
-    else if(compChoice === 'Stump') {
-      alert('You Won')
-    }
-    else {
-      alert('Its a tie')
-    }
+    compChoice=  generateComputerChoice();
+    result =  getResult(userChoice, compChoice);
+    showResult(userChoice, compChoice, result);
     "
     >
       Ball
     </button>
     <button
       onclick="  userChoice = 'Stump';
-     randomNumber = Math.random()*3; 
-    if (randomNumber >0 && randomNumber <= 1){
-       compChoice = 'Bat'; 
-    }
-    else if (randomNumber > 1 && randomNumber <= 2){
-       compChoice = 'Ball'; 
-     }
-    else {
-       compChoice = 'Stump'; 
-      }
-    if(compChoice === 'Ball') {
-      alert('You Lost')
-    }
-    else if(compChoice === 'Bat') {
-      alert('You Won')
-    }
-    else {
-      alert('Its a tie')
-    }
+    compChoice = generateComputerChoice();
+    result = getResult(userChoice, compChoice);
+    showResult(userChoice, compChoice, result);
     "
     >
       Stump
     </button>
+
+    <script>
+      let compChoice;
+      function generateComputerChoice() {
+        let randomNumber = Math.random() * 3;
+        if (randomNumber > 0 && randomNumber <= 1) {
+          compChoice = "Bat";
+        } else if (randomNumber > 1 && randomNumber <= 2) {
+          compChoice = "Ball";
+        } else {
+          compChoice = "Stump";
+        }
+        return compChoice;
+      }
+
+      function getResult(userChoice, compChoice) {
+        let result;
+        if (userChoice === compChoice) {
+          result = "Its a tie";
+        } else if (userChoice === "Bat" && compChoice === "Ball") {
+          result = "You Won";
+        } else if (userChoice === "Ball" && compChoice === "Stump") {
+          result = "You Won";
+        } else if (userChoice === "Stump" && compChoice === "Bat") {
+          result = "You Won";
+        } else {
+          result = "You Lost";
+        }
+        return result;
+      }
+
+      function showResult(userChoice, compChoice, result) {
+        alert(`You have choosen ${userChoice} and Coputer has choosen ${compChoice} so ${result}`);
+      }
+    </script>
   </body>
 </html>
