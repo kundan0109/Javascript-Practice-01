@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyBag</title>
+  </head>
+  <body>
+    <button
+      style="background-color: greenyellow; border-radius: 4px"
+      class="bag-button"
+      onclick="cartCount += 1;
+  document.querySelector('.bag-count').innerText = `Your bag has  ${cartCount} items`;"
+    >
+      Add to bag
+    </button>
+
+    <button
+      style="background-color: rgb(123, 59, 59); border-radius: 4px"
+      class="wish-button"
+      onclick="cartCount -= 1;
+      document.querySelector('.bag-count').innerText = `Your bag has  ${cartCount} items`;"
+    >
+      ❤️WishList
+    </button>
+
+    <button
+      style="background-color: pink; border-radius: 4px"
+      class="wish-button"
+      onclick="cartCount += 2;
+      document.querySelector('.bag-count').innerText = `Your bag has  ${cartCount} items`;"
+    >
+      Add 1+1 Sale
+    </button>
+
+    <h1 class="bag-count"></h1>
+
+    <script>
+      let cartCount = 0; //We have to use llet so thet it will access outsidde thte tag also
+      document.querySelector(
+        ".bag-count"
+      ).innerText = `Your bag has  ${cartCount} items`;
+    </script>
+  </body>
+</html>
