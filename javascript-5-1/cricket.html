@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cricket</title>
+    <style>
+      body {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Bat Ball Game</h1>
+    <!-- ******************************************************** -->
+    <button
+      onclick="let  userChoice = 'Bat';
+    let randomNumber = Math.random()*3; 
+    let compChoice;
+    if (randomNumber >0 && randomNumber <= 1){
+       compChoice = 'Bat'; 
+       console.log(compChoice);
+       
+    }
+    else if (randomNumber > 1 && randomNumber <= 2){
+       compChoice = 'Ball'; 
+       console.log(compChoice);
+
+     }
+    else {
+       compChoice = 'Stump';
+       console.log(compChoice);
+ 
+      }
+    if(compChoice === 'Ball') {
+      alert('You Won')
+    }
+    else if(compChoice === 'Stump') {
+      alert('You Lost')
+    }
+    else {
+      alert('Its a tie')
+    }
+    "
+    >
+      Bat
+    </button>
+    <button
+      onclick=" userChoice = 'Ball';
+    randomNumber = Math.random()*3; 
+    
+    if (randomNumber >0 && randomNumber <= 1){
+       compChoice = 'Bat'; 
+    }
+    else if (randomNumber > 1 && randomNumber <= 2){
+       compChoice = 'Ball'; 
+     }
+    else {
+       compChoice = 'Stump'; 
+      }
+    if(compChoice === 'Bat') {
+      alert('You Lost')
+    }
+    else if(compChoice === 'Stump') {
+      alert('You Won')
+    }
+    else {
+      alert('Its a tie')
+    }
+    "
+    >
+      Ball
+    </button>
+    <button
+      onclick="  userChoice = 'Stump';
+     randomNumber = Math.random()*3; 
+    if (randomNumber >0 && randomNumber <= 1){
+       compChoice = 'Bat'; 
+    }
+    else if (randomNumber > 1 && randomNumber <= 2){
+       compChoice = 'Ball'; 
+     }
+    else {
+       compChoice = 'Stump'; 
+      }
+    if(compChoice === 'Ball') {
+      alert('You Lost')
+    }
+    else if(compChoice === 'Bat') {
+      alert('You Won')
+    }
+    else {
+      alert('Its a tie')
+    }
+    "
+    >
+      Stump
+    </button>
+  </body>
+</html>
