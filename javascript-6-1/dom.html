@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+    <style>
+      body {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Bat Ball Stump Game</h1>
+
+    <button
+      let
+      result;
+      onclick=" let userChoice = 'Bat';
+      compChoice =  generateComputerChoice();
+      result =  getResult(userChoice, compChoice);
+      showResult(userChoice, compChoice, result);
+    "
+    >
+      Bat
+    </button>
+    <button
+      onclick=" userChoice = 'Ball';
+    compChoice=  generateComputerChoice();
+    result =  getResult(userChoice, compChoice);
+    showResult(userChoice, compChoice, result);
+    "
+    >
+      Ball
+    </button>
+    <button
+      onclick="  userChoice = 'Stump';
+    compChoice = generateComputerChoice();
+    result = getResult(userChoice, compChoice);
+    showResult(userChoice, compChoice, result);
+    "
+    >
+      Stump
+    </button>
+
+    <button
+      onclick="localStorage.clear()
+      location.reload();
+    score = {
+      win: 0,
+      lost: 0,
+      tie: 0,
+    }"
+    >
+      Reset
+    </button>
+
+    <div
+      style="
+        background-color: pink;
+        border: 1px solid black;
+        height: 30px;
+        width: 100%;
+        border-radius: 5px;
+        margin: 10px;
+      "
+      class="user-move"
+    ></div>
+    <div
+      style="
+        background-color: pink;
+        border: 1px solid black;
+        height: 30px;
+        width: 100%;
+        border-radius: 5px;
+        margin: 10px;
+      "
+      class="comp-move"
+    ></div>
+    <div
+      style="
+        background-color: pink;
+        border: 1px solid black;
+        height: 30px;
+        width: 100%;
+        border-radius: 5px;
+        margin: 10px;
+      "
+      class="result"
+    ></div>
+    <div
+      style="
+        background-color: pink;
+        border: 1px solid black;
+        height: 30px;
+        width: 100%;
+        border-radius: 5px;
+        margin: 10px;
+      "
+      class="score"
+    ></div>
+
+    <script>
+      let scoreStr = localStorage.getItem("score");
+      let score = scoreStr ? JSON.parse(scoreStr) : { win: 0, lost: 0, tie: 0 };
+
+      let compChoice;
+      function generateComputerChoice() {
+        let randomNumber = Math.random() * 3;
+        if (randomNumber > 0 && randomNumber <= 1) {
+          compChoice = "Bat";
+        } else if (randomNumber > 1 && randomNumber <= 2) {
+          compChoice = "Ball";
+        } else {
+          compChoice = "Stump";
+        }
+        return compChoice;
+      }
+
+      function getResult(userChoice, compChoice) {
+        let result;
+        if (userChoice === compChoice) {
+          result = "Its a tie";
+          score.tie++;
+        } else if (userChoice === "Bat" && compChoice === "Ball") {
+          result = "You Won";
+          score.win++;
+        } else if (userChoice === "Ball" && compChoice === "Stump") {
+          result = "You Won";
+          score.win++;
+        } else if (userChoice === "Stump" && compChoice === "Bat") {
+          result = "You Won";
+          score.win++;
+        } else {
+          result = "You Lost";
+          score.lost++;
+        }
+        return result;
+      }
+
+      function showResult(userChoice, compChoice, result) {
+        // alert(`You have choosen ${userChoice} and Coputer has choosen ${compChoice} so ${result}` + '\n' + `Wins: ${score.win} Lost: ${score.lost} Tie: ${score.tie}`);
+
+        localStorage.setItem("score", JSON.stringify(score));
+
+        document.querySelector(
+          ".user-move"
+        ).textContent = `You have choosen ${userChoice}`;
+        document.querySelector(
+          ".comp-move"
+        ).textContent = `Computer has choosen ${compChoice}`;
+        document.querySelector(".result").textContent = `So ${result}`;
+        document.querySelector(
+          ".score"
+        ).textContent = `Wins: ${score.win} Lost: ${score.lost} Tie: ${score.tie}`;
+        // reset();
+      }
+    </script>
+  </body>
+</html>
