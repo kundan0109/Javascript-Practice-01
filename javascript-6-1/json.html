@@ -12,9 +12,9 @@
   </head>
   <body>
     <h1>Bat Ball Stump Game</h1>
-    <!--  ******************************************************** -->
     <button
-      let result;
+      let
+      result;
       onclick=" let userChoice = 'Bat';
       compChoice =  generateComputerChoice();
       result =  getResult(userChoice, compChoice);
@@ -42,13 +42,20 @@
       Stump
     </button>
 
-    <script>
-      let score = {
-        win : 0,
-        lost : 0,
-        tie : 0, 
-      }
+    <button onclick="localStorage.clear()
+    score = {
+      win: 0,
+      lost: 0,
+      tie: 0,
+    }">Reset</button>
 
+    <script>
+      let scoreStr = localStorage.getItem("score");
+      let score =
+        scoreStr !== undefined
+          ? JSON.parse(scoreStr)
+          : { win: 0, lost: 0, tie: 0 };
+  
 
       let compChoice;
       function generateComputerChoice() {
@@ -85,7 +92,12 @@
       }
 
       function showResult(userChoice, compChoice, result) {
-        alert(`You have choosen ${userChoice} and Coputer has choosen ${compChoice} so ${result}` + '\n' + `Wins: ${score.win} Lost: ${score.lost} Tie: ${score.tie}`);
+        alert(
+          `You have choosen ${userChoice} and Coputer has choosen ${compChoice}"\n \n"  so ${result}` +
+            "\n \n" +
+            `Wins: ${score.win} Lost: ${score.lost} Tie: ${score.tie}`
+        );
+        localStorage.setItem("score", JSON.stringify(score));
       }
     </script>
   </body>
